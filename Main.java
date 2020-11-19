@@ -38,14 +38,24 @@ public class Main<T extends Comparable> implements GenericInterface<T>, Serializ
        // String welcome = in.nextLine();
        // System.out.println(welcome);
         //----------内部类部分----------------------------------------
-        Outer outer = new Outer();
+        Outer outer = new Outer(99999999);
         outer.outerShow();
+        outer.methodForLocalInnerClass();
+        //下面这种new的方式可以看出inner依赖于outer
         Outer.Inner inner = outer.new Inner();
+        //showOuterId可以证明这一点
+        inner.showOuterID();
         inner.innerShow();
         //使用get方法获得的inner对象
         Outer.Inner innerFromGet = outer.getInnerObject();
         innerFromGet.innerShow();
-        
+        ////访问静态内部类的静态方法，Inner类被加载,此时外部类未被加载，独立存在，不依赖于外围类
+        Outer.StaticInner.innerStaticShow();
+        //从下面的new的写法可以看出静态内部类可以单独存在
+        Outer.StaticInner staticInner = new Outer.StaticInner();
+        staticInner.innerShow();
+
+
 
 
         //父类引用子类测试
