@@ -12,6 +12,8 @@ import java.util.regex.Pattern;
 import static java.lang.System.*;
 //可以直接将import static java.lang.System.out;
 public class Main<T extends Comparable> implements GenericInterface<T>, Serializable {
+
+
     //序列化标识，如果一个对象的序列化文件被反序列化时跟申明的类中的ID不一样，则不能被反序列化
     private static final long serialVersionUID = 1L;
     private T data;
@@ -35,6 +37,17 @@ public class Main<T extends Comparable> implements GenericInterface<T>, Serializ
         //Scanner in = new Scanner(System.in);
        // String welcome = in.nextLine();
        // System.out.println(welcome);
+        //----------内部类部分----------------------------------------
+        Outer outer = new Outer();
+        outer.outerShow();
+        Outer.Inner inner = outer.new Inner();
+        inner.innerShow();
+        //使用get方法获得的inner对象
+        Outer.Inner innerFromGet = outer.getInnerObject();
+        innerFromGet.innerShow();
+        
+
+
         //父类引用子类测试
         Son1 son1 = new Son1("提供给父类");
         Parent copyOfSon1 = son1;
