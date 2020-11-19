@@ -1,9 +1,6 @@
 import java.io.*;
 import java.text.MessageFormat;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.lang.System.*;
@@ -37,6 +34,12 @@ public class Main<T extends Comparable> implements GenericInterface<T>, Serializ
         //Scanner in = new Scanner(System.in);
        // String welcome = in.nextLine();
        // System.out.println(welcome);
+        //-------函数式接口----------
+        //用lambda来完成该接口的实现
+        FunctionIterface<String> functionIterface = message -> {return message;};
+        out.println(functionIterface.getDescription("lambda对函数式接口的实现"));
+
+
         //----------内部类部分----------------------------------------
         Outer outer = new Outer(99999999);
         //测试匿名内部类
@@ -98,6 +101,7 @@ public class Main<T extends Comparable> implements GenericInterface<T>, Serializ
         out.println(stringGeneric.genericInterfaceData());
         //泛型类之集合测试
         List<String> list = new ArrayList<>();
+        List<Integer> list3 = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9);
         List<String> list2 = new LinkedList<>();
         list.add("first");
         list.add("second");
