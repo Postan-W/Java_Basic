@@ -46,7 +46,13 @@ public class Main<T extends Comparable> implements GenericInterface<T>, Serializ
         Generic<Parent> generic2 = new Generic<>("generic2",new Parent(2000));
         //使用类型通配符。可以发现不能给generic3.data1或data2引用，这是因为编译时由于类型不确定导致编译错误
         Generic<?> generic3 = generic1;
+        //二者是一样的。或者说3就是引用了1
+        out.println(generic3 == generic1);
+        //generic1当然是可以访问所有的公共元素
+        out.println(generic1.data1.son1Description);
+        //但是generic3的data1却没有内容可访问，这说明被？修饰的元素不给予访问的
         out.println(generic3.data1);
+        //generic3的没有被?修饰的元素却可以访问
         out.println(generic3.genericDescription);
         generic1.data2 = new Son1("第一个孩子");
         out.println(generic1.data2.son1Description);
