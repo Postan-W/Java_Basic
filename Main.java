@@ -39,6 +39,21 @@ public class Main<T extends Comparable> implements GenericInterface<T>, Serializ
        // System.out.println(welcome);
         //----------内部类部分----------------------------------------
         Outer outer = new Outer(99999999);
+        //测试匿名内部类
+        Outer.getAnonymousInstance().speak2();
+        Outer.oneMethodAnonymousInnerClass();
+        outer.testAnonymousInnerClass(new Anonymous() {
+            @Override
+            public void speak1() {
+                out.println("这是匿名内部类第一个方法的输出");
+            }
+
+            @Override
+            public void speak2() {
+                out.println("这是匿名内部类第二个方法的输出");
+
+            }
+        });
         outer.outerShow();
         outer.methodForLocalInnerClass();
         //下面这种new的方式可以看出inner依赖于outer

@@ -1,5 +1,12 @@
 import sun.font.TrueTypeFont;
 
+interface Anonymous{
+    void speak1();
+    void speak2();
+}
+interface AnonymousWithOneMethod{
+    void speak();
+}
 public class Outer extends One {
 
     /*使用内部类最吸引人的原因是：每个内部类都能独立地继承一个（接口的）实现，所以无论外围类是否已经继承了某个
@@ -12,7 +19,41 @@ public class Outer extends One {
     private int outerVariable = 1;
     private int commonVariable = 2;
     public int outerID;
+    //匿名内部类的本质是重写了父类或接口的子类对象
     /*
+     *匿名内部类是没有访问修饰符的
+     *使用匿名内部类时，这个new之后的类首先是要存在的，其次我们要重写new后的类的某个或某些方法
+     * 匿名内部类访问方法参数时也有和局部内部类同样的限制
+     * 匿名内部类没有构造方法
+     * */
+    //类或接口作为参数传递时，可以直接创建对应的匿名内部类对象
+    public static Anonymous getAnonymousInstance(){
+        return new Anonymous() {
+            @Override
+            public void speak1() {
+                System.out.println("这是匿名内部类第一个方法的输出");
+            }
+
+            @Override
+            public void speak2() {
+                System.out.println("这是匿名内部类第二个方法的输出");
+            }
+
+        };
+    }
+    public static AnonymousWithOneMethod oneMethodAnonymousInnerClass(){
+        return new AnonymousWithOneMethod(){
+            @Override
+            public void speak() {
+                System.out.println("只实现一个方法的匿名内部类的return");
+            }
+        };
+    }
+    public void testAnonymousInnerClass(Anonymous anonymous){
+        anonymous.speak1();
+        anonymous.speak2();
+    }
+    /*局部内部类
     类前不能有访问修饰符。
     仅在此方法内使用
     无法创造静态信息。
@@ -21,7 +62,12 @@ public class Outer extends One {
     * */
     public void methodForLocalInnerClass(){
         Boolean tag = true;
+        //tag = false;
         class InnerClassInMethod{
+            /*
+            注意局部内部类访问方法里的局部变量或参数时需要它们是被final修饰的，如果没被final修饰那么也要保证它们从被定义开始就没被
+            修改过，比如上面的tag变量可以测试一下改为false,IDE就会提示你这是是错的
+            * */
             private int innerVariable = 10;
             private int commonVariable = 20;
             void method(){
@@ -34,6 +80,7 @@ public class Outer extends One {
         InnerClassInMethod inner = new InnerClassInMethod();
         inner.method();
     }
+
 
 
     private static int outerStaticVariable = 3;
