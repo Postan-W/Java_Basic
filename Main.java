@@ -1,10 +1,14 @@
 import java.io.*;
+import java.text.MessageFormat;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.lang.System.*;
+import java.util.regex.Pattern;
+
 import static java.lang.System.*;
 //可以直接将import static java.lang.System.out;
 public class Main<T extends Comparable> implements GenericInterface<T>, Serializable {
@@ -31,11 +35,44 @@ public class Main<T extends Comparable> implements GenericInterface<T>, Serializ
         //Scanner in = new Scanner(System.in);
        // String welcome = in.nextLine();
        // System.out.println(welcome);
+        //父类引用子类测试
+        Son1 son1 = new Son1("提供给父类");
+        Parent copyOfSon1 = son1;
+        out.println(copyOfSon1.number);
+
         //泛型类测试
         Main<String> stringGeneric = new Main<>();
+        Generic<Son1> generic1 = new Generic<>("generic1",new Son1("第一个孩子的类型"));
+        Generic<Parent> generic2 = new Generic<>("generic2",new Parent(2000));
+        //使用类型通配符。可以发现不能给generic3.data1或data2引用，这是因为编译时由于类型不确定导致编译错误
+        Generic<?> generic3 = generic1;
+        out.println(generic3.data1);
+        out.println(generic3.genericDescription);
+        generic1.data2 = new Son1("第一个孩子");
+        out.println(generic1.data2.son1Description);
         stringGeneric.setData("泛型类，字符串类型");
         out.println(stringGeneric.genericInterfaceData());
-
+        //泛型类之集合测试
+        List<String> list = new ArrayList<>();
+        List<String> list2 = new LinkedList<>();
+        list.add("first");
+        list.add("second");
+        list2.add("first");
+        list2.add("second");
+        long startOfArray = System.nanoTime();
+        for (String element:list){
+            out.println(element);
+        }
+        long endOfArray = System.nanoTime();
+        long gap1 = endOfArray - startOfArray;
+        out.println(MessageFormat.format("{0}",gap1));
+        long startOfLinkedList = System.nanoTime();
+        for (String element:list2){
+            out.println(element);
+        }
+        long endOfLinkedList = System.nanoTime();
+        long gap2 = endOfLinkedList - startOfLinkedList;
+        out.println(MessageFormat.format("{0}",gap2));
         //泛型接口测试
         ImplementGenericInterfaceOfString<Integer> genericInterfaceOfString = new ImplementGenericInterfaceOfString<>(100);
         out.println(genericInterfaceOfString.genericInterfaceData());
