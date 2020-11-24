@@ -40,6 +40,7 @@ public class Main<T extends Comparable> implements GenericInterface<T>, Serializ
         out.println(functionIterface.getDescription("lambda对函数式接口的实现"));
 
 
+
         //----------内部类部分----------------------------------------
         Outer outer = new Outer(99999999);
         //测试匿名内部类
