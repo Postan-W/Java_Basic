@@ -14,6 +14,8 @@ public class Main<T extends Comparable> implements GenericInterface<T>, Serializ
     //序列化标识，如果一个对象的序列化文件被反序列化时跟申明的类中的ID不一样，则不能被反序列化
     private static final long serialVersionUID = 1L;
     private T data;
+    //测试mingzhu2分支修改内容
+    private T data2;
 
     @Override
     public T genericInterfaceData(){
