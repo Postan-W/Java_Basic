@@ -179,4 +179,3 @@ public class Main<T extends Comparable> implements GenericInterface<T>, Serializ
 }
 //测试合并两个分支会不会有冲突
 
-//测试2
