@@ -174,7 +174,7 @@ public class Main<T extends Comparable> implements GenericInterface<T>, Serializ
     //普通代码块测试
     {
         out.println("非静态初始化块在new对象时调用");
-
+        //由mingzhu2添加
     }
 }
 //测试合并两个分支会不会有冲突
