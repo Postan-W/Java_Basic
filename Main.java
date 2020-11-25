@@ -176,6 +176,7 @@ public class Main<T extends Comparable> implements GenericInterface<T>, Serializ
         out.println("非静态初始化块在new对象时调用");
         //由mingzhu2添加
         //还是由mingzhu2添加
+        //继续由mingzhu2添加
     }
 }
 //测试合并两个分支会不会有冲突
