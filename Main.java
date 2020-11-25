@@ -15,6 +15,7 @@ public class Main<T extends Comparable> implements GenericInterface<T>, Serializ
     private static final long serialVersionUID = 1L;
     private T data;
     private T data2;
+    private T data3;
     //测试是否受保护
     @Override
     public T genericInterfaceData(){
