@@ -177,6 +177,7 @@ public class Main<T extends Comparable> implements GenericInterface<T>, Serializ
         //由mingzhu2添加
         //还是由mingzhu2添加
         //继续由mingzhu2添加
+        //mingzhu2添加12341234
     }
 }
 //测试合并两个分支会不会有冲突
