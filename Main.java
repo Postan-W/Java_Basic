@@ -14,6 +14,7 @@ public class Main<T extends Comparable> implements GenericInterface<T>, Serializ
     //序列化标识，如果一个对象的序列化文件被反序列化时跟申明的类中的ID不一样，则不能被反序列化
     private static final long serialVersionUID = 1L;
     private T data;
+    private T data2;
     //测试是否受保护
     @Override
     public T genericInterfaceData(){
@@ -34,6 +35,8 @@ public class Main<T extends Comparable> implements GenericInterface<T>, Serializ
         //Scanner in = new Scanner(System.in);
        // String welcome = in.nextLine();
        // System.out.println(welcome);
+        //测试控制反转思想
+
         //-------函数式接口----------
         //用lambda来完成该接口的实现
         FunctionIterface<String> functionIterface = message -> {return message;};
