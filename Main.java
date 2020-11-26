@@ -20,7 +20,6 @@ public class Main<T extends Comparable> implements GenericInterface<T>, Serializ
     //测试是否受保护
     //diff 命令测试
     //cherry-pick命令测试
-
     @Override
     public T genericInterfaceData(){
         return data;
@@ -184,4 +183,5 @@ public class Main<T extends Comparable> implements GenericInterface<T>, Serializ
         out.println("非静态初始化块在new对象时调用");
 
     }
+    //test分支1
 }
