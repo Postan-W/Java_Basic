@@ -183,6 +183,6 @@ public class Main<T extends Comparable> implements GenericInterface<T>, Serializ
         out.println("非静态初始化块在new对象时调用");
 
     }
-    //tt分支1
+    //test分1
     //test
 }
