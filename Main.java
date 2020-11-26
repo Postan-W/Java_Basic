@@ -17,6 +17,7 @@ public class Main<T extends Comparable> implements GenericInterface<T>, Serializ
     private T data2;
     private T data4;
     private T data5;
+    private T data6;
     //测试是否受保护
     //diff 命令测试
     //cherry-pick命令测试
