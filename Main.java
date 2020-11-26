@@ -187,10 +187,6 @@ public class Main<T extends Comparable> implements GenericInterface<T>, Serializ
     //te
     //tttt
     //yyyy
-<<<<<<< HEAD
     //rrrr
-=======
-    //uuuuu
 
->>>>>>> 9d98fe1834f65aa988591cd0034ab99e2849acb8
 }
